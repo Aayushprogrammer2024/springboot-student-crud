@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Page</title>
+</head>
+<body>
+    <h1>Details Are:</h1>
+    <table border="2">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+        <tr th:each="s : ${student}">
+            <td th:text="${s.rollno}"></td>
+            <td th:text="${s.name}"></td>
+            <td th:text="${s.age}"></td>
+            <td th:text="${s.address}"></td>
+            <td><a th:href="@{'/delete/'+${s.rollno}}">Delete</a></td>
+            <td><a th:href="@{'/update/'+${s.rollno}}">Update</a></td>
+        </tr>
+
+
+    </table>
+    <a th:href="@{/insert}">Click to Insert</a>
+</body>
+</html>
